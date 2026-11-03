@@ -43,4 +43,20 @@ public class PhonesServiceImpl implements PhonesService {
         return filteredPhones;
     }
 
+    @Override
+    public Phones getMaxPricePhone() {
+        List<Phones> phonesList = phonesRepository.findAll();
+        Phones maxPhone = phonesList.get(0);
+        int maxPrice = 0;
+
+        for (Phones phone : phonesList) {
+            if (maxPrice < phone.getPrice()) {
+                maxPhone = phone;
+                maxPrice = phone.getPrice();
+            }
+        }
+
+        return maxPhone;
+    }
+
 }
