@@ -17,6 +17,7 @@ public class PhonesServiceImpl implements PhonesService {
         this.phonesRepository = phonesRepository;
     }
 
+
     @Override
     public Phones save(Phones phone) {
         return phonesRepository.save(phone);
@@ -26,4 +27,20 @@ public class PhonesServiceImpl implements PhonesService {
     public List<Phones> findPhones() {
         return phonesRepository.findAll();
     }
+
+    @Override
+    public List<Phones> findPhonesWithTwoOne() {
+
+        List<Phones> allPhones = phonesRepository.findAll();
+        ArrayList<Phones> filteredPhones = new ArrayList<>();
+
+        for (Phones phone : allPhones) {
+            if (phone.getModelName() != null && phone.getModelName().contains("11")) {
+                filteredPhones.add(phone);
+            }
+        }
+
+        return filteredPhones;
+    }
+
 }
