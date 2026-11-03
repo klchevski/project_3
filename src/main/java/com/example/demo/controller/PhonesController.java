@@ -33,4 +33,9 @@ public class PhonesController {
     List<Phones> getPhonesTwoOne() {
         return phonesService.findPhonesWithTwoOne();
     }
+
+    @GetMapping("/phones/maxPhonePrice")
+    Phones getMaxPhonePrice() {
+        return phonesService.getMaxPricePhone();
+    }
 }

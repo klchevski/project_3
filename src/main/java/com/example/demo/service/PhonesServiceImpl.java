@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
+import com.example.demo.exception.PhonesNotFoundException;
 import com.example.demo.model.Phones;
 import com.example.demo.repository.PhonesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -41,6 +43,18 @@ public class PhonesServiceImpl implements PhonesService {
         }
 
         return filteredPhones;
+    }
+
+    /**
+     *Find max Phone price
+     * @return The phone with max price
+     */
+    @Override
+    public Phones getMaxPricePhone() {
+       Phones max = phonesRepository.findAll().stream()
+                .max(Comparator.comparing(e-> e.getPrice()))
+                .orElseThrow(() -> new PhonesNotFoundException ("Phone not found"));
+        return max;
     }
 
 }
