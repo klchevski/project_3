@@ -45,6 +45,10 @@ public class PhonesServiceImpl implements PhonesService {
         return filteredPhones;
     }
 
+    /**
+     *Find max Phone price
+     * @return The phone with max price
+     */
     @Override
     public Phones getMaxPricePhone() {
        Phones max = phonesRepository.findAll().stream()
