@@ -28,4 +28,9 @@ public class PhonesController {
     public Phones savePhone(@RequestBody Phones phone) {
         return phonesService.save(phone);
     }
+
+    @GetMapping("/phones/withTwoOne")
+    List<Phones> getPhonesTwoOne() {
+        return phonesService.findPhonesWithTwoOne();
+    }
 }
