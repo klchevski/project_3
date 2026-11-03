@@ -18,6 +18,11 @@ public class PhonesServiceImpl implements PhonesService {
     }
 
     @Override
+    public Phones save(Phones phone) {
+        return phonesRepository.save(phone);
+    }
+
+    @Override
     public List<Phones> findPhones() {
         return phonesRepository.findAll();
     }
