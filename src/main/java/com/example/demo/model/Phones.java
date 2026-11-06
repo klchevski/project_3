@@ -12,11 +12,13 @@ public class Phones {
     private int id;
     private String modelName;
     private int price;
+    private boolean isUsed;
 
-    Phones(int id, String modelName, int price) {
+    Phones(int id, String modelName, int price, boolean isUsed) {
         this.id = id;
         this.modelName = modelName;
         this.price = price;
+        this.isUsed = isUsed;
     }
 
     Phones() {
@@ -34,4 +36,13 @@ public class Phones {
     public int getPrice() {
         return price;
     }
+
+    public boolean getIsUsed() {
+        return isUsed;
+    }
+
+    public void setUsed(boolean used) {
+        isUsed = used;
+    }
+
 }
