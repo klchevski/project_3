@@ -74,6 +74,10 @@ public class PhonesServiceImpl implements PhonesService {
         return filteredPhones;
     }
 
+    /**
+     * Find minus price and fix it to plus price
+     * @return The Phone with plus price
+     */
     @Override
     public List<Phones> getPlusPrice() {
         List<Phones> allPhones = phonesRepository.findAll();
