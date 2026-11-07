@@ -37,6 +37,10 @@ public class Phones {
         return price;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public boolean getIsUsed() {
         return isUsed;
     }
