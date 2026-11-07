@@ -14,4 +14,6 @@ public interface PhonesService {
     Phones getMaxPricePhone();
 
     List<Phones> findUsedPhones(Boolean isUsed);
+
+    List<Phones> getPlusPrice();
 }
