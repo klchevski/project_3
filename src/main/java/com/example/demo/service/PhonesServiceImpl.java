@@ -46,15 +46,32 @@ public class PhonesServiceImpl implements PhonesService {
     }
 
     /**
-     *Find max Phone price
+     * Find max Phone price
+     *
      * @return The phone with max price
      */
     @Override
     public Phones getMaxPricePhone() {
-       Phones max = phonesRepository.findAll().stream()
-                .max(Comparator.comparing(e-> e.getPrice()))
-                .orElseThrow(() -> new PhonesNotFoundException ("Phone not found"));
+        Phones max = phonesRepository.findAll().stream()
+                .max(Comparator.comparing(e -> e.getPrice()))
+                .orElseThrow(() -> new PhonesNotFoundException("Phone not found"));
         return max;
+    }
+
+    @Override
+    public List<Phones> findUsedPhones(Boolean isUsed) {
+        List<Phones> allPhones = phonesRepository.findAll();
+        if (isUsed == null) {
+            return allPhones;
+        }
+        List<Phones> filteredPhones = new ArrayList<>();
+        for (Phones phone : allPhones) {
+
+            if (phone.getIsUsed() == isUsed) {
+                filteredPhones.add(phone);
+            }
+        }
+        return filteredPhones;
     }
 
 }
