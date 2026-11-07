@@ -40,4 +40,9 @@ public class PhonesController {
     public List<Phones> getUsedPhones(@RequestParam(required = false) Boolean isUsed) {
         return phonesService.findUsedPhones(isUsed);
     }
+
+    @GetMapping("/phones/getPlusPrice")
+    public List<Phones> getPlusPrice() {
+        return phonesService.getPlusPrice();
+    }
 }
