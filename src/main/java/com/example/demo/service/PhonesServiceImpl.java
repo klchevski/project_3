@@ -76,6 +76,7 @@ public class PhonesServiceImpl implements PhonesService {
 
     /**
      * Find minus price and fix it to plus price
+     *
      * @return The Phone with plus price
      */
     @Override
@@ -85,11 +86,38 @@ public class PhonesServiceImpl implements PhonesService {
 
         for (Phones phones : allPhones) {
             if (phones.getPrice() < 0) {
-                phones.setPrice(phones.getPrice() * -1 );
+                phones.setPrice(phones.getPrice() * -1);
                 phonesArrayList.add(phones);
             }
         }
         return phonesArrayList;
+    }
+
+    @Override
+    public Phones getMaxWithMin() {
+        List<Phones> allPhones = phonesRepository.findAll();
+
+        Phones maxPhonePrice = null;
+        Phones minPhonePrice = allPhones.get(0);
+        int max = 0;
+        int min = allPhones.get(0).getPrice();
+
+        for (Phones phone : allPhones) {
+            if (phone.getPrice() > max) {
+                maxPhonePrice = phone;
+                max = phone.getPrice();
+            }
+
+            if (phone.getPrice() < min) {
+                minPhonePrice = phone;
+                min = phone.getPrice();
+            }
+
+
+        }
+        int negative = minPhonePrice.getPrice();
+        maxPhonePrice.setPrice(-negative);
+        return maxPhonePrice;
     }
 
 }
