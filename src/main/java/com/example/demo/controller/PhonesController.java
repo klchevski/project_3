@@ -51,4 +51,8 @@ public class PhonesController {
         return phonesService.getMaxWithMin();
     }
 
+    @GetMapping("/phones/negativeUsed")
+    public List<Phones> getNegativeUsed() {
+        return phonesService.usedNegative();
+    }
 }

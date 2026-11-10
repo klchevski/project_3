@@ -18,4 +18,6 @@ public interface PhonesService {
     List<Phones> getPlusPrice();
 
     Phones getMaxWithMin();
+
+    List<Phones> usedNegative();
 }
