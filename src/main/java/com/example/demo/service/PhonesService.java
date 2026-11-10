@@ -17,5 +17,5 @@ public interface PhonesService {
 
     List<Phones> getPlusPrice();
 
-    List<Phones> getMaxWithMin();
+    Phones getMaxWithMin();
 }

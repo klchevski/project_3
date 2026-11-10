@@ -45,4 +45,10 @@ public class PhonesController {
     public List<Phones> getPlusPrice() {
         return phonesService.getPlusPrice();
     }
+
+    @GetMapping("/phones/getMaxWithMin")
+    public Phones getMaxWithMin() {
+        return phonesService.getMaxWithMin();
+    }
+
 }
