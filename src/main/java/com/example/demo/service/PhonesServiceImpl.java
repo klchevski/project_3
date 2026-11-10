@@ -120,4 +120,17 @@ public class PhonesServiceImpl implements PhonesService {
         return maxPhonePrice;
     }
 
+    @Override
+    public List<Phones> usedNegative() {
+        List<Phones> allPhones = phonesRepository.findAll();
+        ArrayList<Phones> arrayListPhone = new ArrayList<>();
+        for (Phones phones : allPhones) {
+            if (phones.getPrice() < 0) {
+                phones.setUsed(true);
+                arrayListPhone.add(phones);
+            }
+        }
+        return arrayListPhone;
+    }
+
 }
