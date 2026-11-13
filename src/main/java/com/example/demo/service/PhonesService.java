@@ -22,4 +22,6 @@ public interface PhonesService {
     List<Phones> usedNegative();
 
     Integer totalSumUsedPhones();
+
+    Integer totalsSumNegativePhones();
 }
