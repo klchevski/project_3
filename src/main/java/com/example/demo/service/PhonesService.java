@@ -20,4 +20,6 @@ public interface PhonesService {
     Phones getMaxWithMin();
 
     List<Phones> usedNegative();
+
+    Integer totalSumUsedPhones();
 }

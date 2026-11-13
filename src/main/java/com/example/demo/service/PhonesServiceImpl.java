@@ -133,4 +133,18 @@ public class PhonesServiceImpl implements PhonesService {
         return arrayListPhone;
     }
 
+    @Override
+    public Integer totalSumUsedPhones() {
+        List<Phones> allPhones = phonesRepository.findAll();
+        int totalSum = 0;
+
+        for (Phones phones : allPhones) {
+            if (phones.getIsUsed() == true) {
+                totalSum += phones.getPrice();
+            }
+        }
+
+        return totalSum;
+    }
+
 }
