@@ -65,4 +65,9 @@ public class PhonesController {
     Integer getNegativeTotal() {
         return phonesService.totalsSumNegativePhones();
     }
+
+    @GetMapping("/phone/reversePrice")
+    List<Phones> getReversePrice() {
+        return phonesService.reversePrice();
+    }
 }
