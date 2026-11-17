@@ -5,6 +5,7 @@ import com.example.demo.model.Phones;
 import java.util.List;
 
 public interface PhonesService {
+
     List<Phones> findPhonesWithTwoOne();
 
     Phones save(Phones phone);
@@ -24,4 +25,6 @@ public interface PhonesService {
     Integer totalSumUsedPhones();
 
     Integer totalsSumNegativePhones();
+
+    List<Phones> reversePrice();
 }

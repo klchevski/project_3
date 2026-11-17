@@ -161,4 +161,21 @@ public class PhonesServiceImpl implements PhonesService {
         return totalSumNeg;
     }
 
+    @Override
+    public List<Phones> reversePrice() {
+        List<Phones> allPhones = phonesRepository.findAll();
+        ArrayList<Phones> phonesArrayList = new ArrayList<>();
+        String emptyPrice = "";
+        for (Phones phones : allPhones) {
+            String price = phones.getPrice() + "";
+            for (int i = price.length() - 1; i >= 0; i--) {
+                emptyPrice += price.charAt(i);
+            }
+            phones.setPrice(Integer.parseInt(emptyPrice));
+            phonesArrayList.add(phones);
+        }
+
+        return phonesArrayList;
+    }
+
 }
