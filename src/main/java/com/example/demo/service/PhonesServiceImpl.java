@@ -147,4 +147,18 @@ public class PhonesServiceImpl implements PhonesService {
         return totalSum;
     }
 
+    @Override
+    public Integer totalsSumNegativePhones() {
+        List<Phones> allPhones = phonesRepository.findAll();
+        int totalSumNeg = 0;
+
+        for (Phones phone : allPhones) {
+            if (phone.getPrice() < 0) {
+                totalSumNeg += phone.getPrice();
+            }
+        }
+
+        return totalSumNeg;
+    }
+
 }

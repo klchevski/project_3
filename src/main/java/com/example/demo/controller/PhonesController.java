@@ -60,4 +60,9 @@ public class PhonesController {
     Integer usedPhonesTotalSum() {
         return phonesService.totalSumUsedPhones();
     }
+
+    @GetMapping("/phone/negativeTotal")
+    Integer getNegativeTotal() {
+        return phonesService.totalsSumNegativePhones();
+    }
 }
