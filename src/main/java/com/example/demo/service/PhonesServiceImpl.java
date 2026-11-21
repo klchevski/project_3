@@ -178,4 +178,48 @@ public class PhonesServiceImpl implements PhonesService {
         return phonesArrayList;
     }
 
+    @Override
+    public List<Phones> minMaxReverse() {
+        List<Phones> allPhones = phonesRepository.findAll();
+        ArrayList<Phones> phonesArrayList = new ArrayList<>();
+
+        String emptyPriceMax = "";
+        String emptyPriceMin = "";
+
+        Phones phonesMax = null;
+        Phones phonesMin = allPhones.get(0);
+
+        int maxPrice = 0;
+        int minPrice = allPhones.get(0).getPrice();
+
+        for (Phones phones : allPhones) {
+            if (phones.getPrice() > maxPrice) {
+                phonesMax = phones;
+                maxPrice = phones.getPrice();
+            }
+
+            if (phones.getPrice() < minPrice) {
+                phonesMin = phones;
+                minPrice = phones.getPrice();
+            }
+        }
+        String priceRevMax = phonesMax.getPrice() + "";
+        String priceReVMin = phonesMin.getPrice() + "";
+        for (int i = priceRevMax.length() - 1; i >= 0; i--) {
+            emptyPriceMax += priceRevMax.charAt(i);
+        }
+
+        for (int i = priceReVMin.length() - 1; i >= 0; i--) {
+            emptyPriceMin += priceReVMin.charAt(i);
+        }
+
+        phonesMax.setPrice(Integer.parseInt(emptyPriceMax));
+        phonesMin.setPrice(Integer.parseInt(emptyPriceMin));
+
+        phonesArrayList.add(phonesMax);
+        phonesArrayList.add(phonesMin);
+
+        return phonesArrayList;
+    }
+
 }

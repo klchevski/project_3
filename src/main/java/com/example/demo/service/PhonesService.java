@@ -27,4 +27,6 @@ public interface PhonesService {
     Integer totalsSumNegativePhones();
 
     List<Phones> reversePrice();
+
+    List<Phones> minMaxReverse();
 }
