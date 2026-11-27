@@ -227,7 +227,7 @@ public class PhonesServiceImpl implements PhonesService {
         List<Phones> allPhones = phonesRepository.findAll();
 
         Integer total = allPhones.stream()
-                .mapToInt(e -> allPhones.get(0).getPrice())
+                .mapToInt(e -> e.getPrice())
                 .sum();
 
         return total;
