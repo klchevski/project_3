@@ -224,7 +224,13 @@ public class PhonesServiceImpl implements PhonesService {
 
     @Override
     public Integer totalPhonePrice() {
-        return null;
+        List<Phones> allPhones = phonesRepository.findAll();
+
+        Integer total = allPhones.stream()
+                .mapToInt(e -> allPhones.get(0).getPrice())
+                .sum();
+
+        return total;
     }
 
 
