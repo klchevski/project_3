@@ -222,4 +222,16 @@ public class PhonesServiceImpl implements PhonesService {
         return phonesArrayList;
     }
 
+    @Override
+    public Integer totalPhonePrice() {
+        List<Phones> allPhones = phonesRepository.findAll();
+
+        Integer total = allPhones.stream()
+                .mapToInt(e -> e.getPrice())
+                .sum();
+
+        return total;
+    }
+
+
 }
