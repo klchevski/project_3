@@ -75,4 +75,9 @@ public class PhonesController {
     List<Phones> getMaxMinRev() {
         return phonesService.minMaxReverse();
     }
+
+    @GetMapping("phones/totalPhonePrice")
+    Integer totalPhonePrice() {
+        return phonesService.totalPhonePrice();
+    }
 }

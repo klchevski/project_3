@@ -222,4 +222,10 @@ public class PhonesServiceImpl implements PhonesService {
         return phonesArrayList;
     }
 
+    @Override
+    public Integer totalPhonePrice() {
+        return null;
+    }
+
+
 }
